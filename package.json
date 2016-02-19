@@ -4,7 +4,8 @@
   "description": "A basic chatter app",
   "main": "./src/main.js",
   "scripts": {
-    "start": "webpack;electron ./src/main.js"
+    "start": "webpack;electron ./src/main.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,10 @@
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
     "webpack": "^1.12.10",
-    "webpack-dev-server": "^1.14.0"
+    "webpack-dev-server": "^1.14.0",
+    "babel-jest": "*",
+    "jest-cli": "*",
+    "react-addons-test-utils": "~0.14.0"
   },
   "dependencies": {
     "auto-launch": "^1.1.1",
@@ -35,5 +39,27 @@
     "nedb": "^1.7.4",
     "opn": "^4.0.0",
     "react-router": "^2.0.0"
+  },
+  "jest": {
+    "scriptPreprocessor": "./node_modules/babel-jest",
+    "unmockedModulePathPatterns": [
+      "./node_modules/react",
+      "./node_modules/react-dom",
+      "./node_modules/react-addons-test-utils",
+      "./node_modules/fbjs"
+    ],
+    "testFileExtensions": [
+        "es6",
+        "jsx"
+    ],
+    "moduleFileExtensions": [
+        "js",
+        "jsx",
+        "json",
+        "es6"
+    ]
+  },
+  "babel": {
+    "presets": ["es2015", "react"]
   }
 }

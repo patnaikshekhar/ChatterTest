@@ -1,9 +1,16 @@
 import React from 'react';
 
-export default class Login extends React.Component {
+class Login extends React.Component {
+    
+    constructor(props) {
+        super(props);    
+    }
+    
     render() {
         return (
             <h1>Login Route</h1>
         );
     }
 }
+
+export default Login;

@@ -38,7 +38,9 @@
     "history": "^1.17.0",
     "nedb": "^1.7.4",
     "opn": "^4.0.0",
-    "react-router": "^2.0.0"
+    "react-redux": "^4.4.0",
+    "react-router": "^2.0.0",
+    "redux": "^3.3.1"
   },
   "jest": {
     "scriptPreprocessor": "./node_modules/babel-jest",
@@ -49,17 +51,20 @@
       "./node_modules/fbjs"
     ],
     "testFileExtensions": [
-        "es6",
-        "jsx"
+      "es6",
+      "jsx"
     ],
     "moduleFileExtensions": [
-        "js",
-        "jsx",
-        "json",
-        "es6"
+      "js",
+      "jsx",
+      "json",
+      "es6"
     ]
   },
   "babel": {
-    "presets": ["es2015", "react"]
+    "presets": [
+      "es2015",
+      "react"
+    ]
   }
 }

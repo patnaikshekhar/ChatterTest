@@ -1,7 +1,7 @@
 {
   "name": "ChatterTest",
   "version": "0.0.1",
-  "description": "A basic chatter app",
+  "description": "A basic app",
   "main": "./src/main.js",
   "scripts": {
     "start": "webpack;electron ./src/main.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/atom/electron-quick-start.git"
+    "url": "git+https://github.com/patnaikshekhar/ChatterTest.git"
   },
   "keywords": [],
   "author": "GitHub",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/atom/electron-quick-start/issues"
+    "url": "https://github.com/patnaikshekhar/ChatterTest/issues"
   },
-  "homepage": "https://github.com/atom/electron-quick-start#readme",
+  "homepage": "https://github.com/patnaikshekhar/ChatterTest#readme",
   "devDependencies": {
     "babel-core": "^6.4.0",
     "babel-loader": "^6.2.1",

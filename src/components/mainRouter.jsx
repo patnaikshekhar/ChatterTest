@@ -3,13 +3,13 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import Login from './login';
 import Template from './template';
 import { Provider } from 'react-redux';
-import Store from '../reducers/store';
+import store from '../reducers/store';
 
 export default class MainRouter extends React.Component {
-    
+
     render() {
        const rootPath = `${mainPath}/index.html`;
-       
+
        return (
             <Provider store={store}>
                 <Router history={browserHistory}>
@@ -17,7 +17,7 @@ export default class MainRouter extends React.Component {
                         <IndexRoute component={Login} />
                     </Route>
                 </Router>
-            </Provider> 
+            </Provider>
        );
     }
 }

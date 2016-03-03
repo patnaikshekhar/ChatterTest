@@ -1,7 +1,15 @@
-import { createStore } from 'react-redux';
+import { createStore } from 'redux';
+import { CREATE_CONNECTION } from './actions';
 
 function reducer(state = {}, action) {
-    return state;
+
+    switch(action.type) {
+      case CREATE_CONNECTION:
+        console.log('Create connection called');
+        return state;
+      default:
+        return state;
+    }
 }
 
 export default createStore(reducer)

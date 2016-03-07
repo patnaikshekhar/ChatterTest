@@ -33692,11 +33692,29 @@
 	  value: true
 	});
 	exports.createConnection = createConnection;
+	exports.error = error;
+	exports.setActiveConnection = setActiveConnection;
 	var CREATE_CONNECTION = exports.CREATE_CONNECTION = 'CREATE_CONNECTION';
+	var ERROR = exports.ERROR = 'ERROR';
+	var SET_ACTIVE_CONNECTION = exports.SET_ACTIVE_CONNECTION = 'SET_ACTIVE_CONNECTION';
 
 	function createConnection() {
 	  return {
 	    type: CREATE_CONNECTION
+	  };
+	}
+
+	function error(err) {
+	  return {
+	    type: ERROR,
+	    message: err
+	  };
+	}
+
+	function setActiveConnection(conn) {
+	  return {
+	    type: SET_ACTIVE_CONNECTION,
+	    message: conn
 	  };
 	}
 
@@ -33763,16 +33781,38 @@
 
 	var _actions = __webpack_require__(312);
 
+	var createConnection = function createConnection() {
+	  Electron.dispatch(action, function (err, conn) {
+	    // Got connection or error
+	    if (err) {
+	      (0, _redux.dispatch)((0, _actions.error)(err));
+	    } else {
+	      (0, _redux.dispatch)((0, _actions.setActiveConnection)(conn));
+	    }
+	  });
+
+	  return state;
+	};
+
 	function reducer() {
 	  var state = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 	  var action = arguments[1];
 
-	  console.log(action, action == _actions.CREATE_CONNECTION, _actions.CREATE_CONNECTION);
 
 	  switch (action.type) {
 	    case _actions.CREATE_CONNECTION:
-	      console.log('Create connection called');
-	      return state;
+	      return createConnection(state, action);
+
+	    case _actions.ERROR:
+	      return Object.assign({}, state, {
+	        error: action.message
+	      });
+
+	    case _actions.SET_ACTIVE_CONNECTION:
+	      return Object.assign({}, state, {
+	        activeConnection: action.message
+	      });
+
 	    default:
 	      return state;
 	  }
